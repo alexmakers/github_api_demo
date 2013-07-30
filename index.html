@@ -1,0 +1,20 @@
+<!doctype>
+<html>
+	<body>
+    <h1>Issue Tracker</h1>
+    <ul id='issues'>
+    </ul>
+  </body>
+  <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
+  <script>
+    $(document).ready(function() {
+      $.get('https://api.github.com/repos/alexmakers/authentication_demo/issues', function(issues) {
+        $.each(issues, function(index, issue) {
+          $('#issues').append(
+            $('<li />', { text: issue.title })
+          );
+        });
+      })
+    });
+  </script>
+</html>
